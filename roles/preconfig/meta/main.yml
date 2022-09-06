@@ -1,0 +1,14 @@
+galaxy_info:
+  role name: preconfig
+  description: Server customization for work with Docker
+  author: Ekoman
+  license: MIT
+  min_anible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+
+dependencies:
+ - role: deploy
+
