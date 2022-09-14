@@ -1,0 +1,14 @@
+---
+- name: "[{{ name }}] Config configuration"
+  block:
+   - name: "[{{ name }}] Config creation"
+     include: "config-create.yml"
+  tags: "{{ name }}"
+  rescue:
+   - name: "[{{ name }}] Service delete"
+     community.docker.docker_swarm_service:
+      name: "{{ name }}"
+      state: absent
+
+   - name: "[{{ name }}] Config creation"
+     include: "config-create.yml"
